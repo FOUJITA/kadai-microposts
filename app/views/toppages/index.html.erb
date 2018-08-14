@@ -6,6 +6,9 @@
           <%= f.text_area :content, class: 'form-control', :placeholder => "What are you doing?",rows: 5  %>
         </div>
         <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
+        <span class="picture">
+        <%= f.file_field :picture %>
+        </span>
       <% end %>
     </aside>
     <div class="col-xs-8">
