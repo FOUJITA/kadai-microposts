@@ -60,3 +60,5 @@ group :production do
 end
 
 gem 'carrierwave'
+gem 'mini_magick'
+gem 'pry-byebug', group: :development
