@@ -56,9 +56,10 @@ gem 'kaminari'
 
 group :production do
   gem 'pg', '0.21.0'
-  gem 'fog', '1.42'
+  # gem 'fog', '1.42'
 end
 
 gem 'carrierwave'
-gem 'mini_magick'
+gem 'rmagick'
+# gem 'mini_magick'
 gem 'pry-byebug', group: :development
