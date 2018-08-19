@@ -18,8 +18,12 @@ Rails.application.routes.draw do
     #end
   end
   
-  resources :microposts, only: [:create, :destroy]
+  resources :microposts, only: [:create, :destroy, :show] do
+    member do
+      post :retweet
+    end
+  end
   resources :relationships, only: [:create, :destroy]
   resources :relationshiplikes, only: [:create, :destroy]
-  
+  resources :replies
 end

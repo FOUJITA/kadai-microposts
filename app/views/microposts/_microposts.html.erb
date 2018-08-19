@@ -9,6 +9,9 @@
           <%= link_to micropost.user.name, user_path(micropost.user) %> <span class="text-muted">posted at <%= micropost.created_at %></span>
         </div>
         <div>
+          <% if micropost.original_id.present? %>
+            <p></p><%= Micropost.find(micropost.original_id).user.name %>さんのリツイート</P>
+          <% end %>
           <p><%= micropost.content %></p>
           <%= image_tag (micropost.picture.url) if micropost.picture? %>
         </div>
@@ -16,7 +19,9 @@
         <% if current_user == micropost.user %>
            <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs' %>
         <% end %>
+        <%= link_to "詳細", micropost %>
         <%= render 'relationshiplikes/like_button', user: @user, micropost: micropost %>
+        <%= link_to "リツイート", retweet_micropost_path(micropost), method: :post %>
         </div>
       </div>
     </li>

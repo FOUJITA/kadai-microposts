@@ -15,6 +15,9 @@ class User < ApplicationRecord
   has_many :relationshiplikes#ここを消すとエラーが出る
   has_many :likes, through: :relationshiplikes, source: :micropost#ここを消すとエラーが出る
 
+  has_many :replies
+
+
   def follow(other_user)
     unless self == other_user
       self.relationships.find_or_create_by(follow_id: other_user.id)

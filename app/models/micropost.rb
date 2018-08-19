@@ -8,6 +8,8 @@ class Micropost < ApplicationRecord
   has_many :relationshiplikes, dependent: :destroy
   has_many :likes, through: :relationshiplikes, source: :micropost, dependent: :destroy
   
+  has_many :replies
+  
   # アップロードされた画像のサイズをバリデーションする
    # def picture_size
     #  if picture.size > 5.megabytes

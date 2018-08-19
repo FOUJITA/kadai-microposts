@@ -1,0 +1,13 @@
+<h1><%= @micropost.content %></h1>
+
+<%= form_for(@reply) do |f| %>
+  <%= f.hidden_field :micropost_id %> 
+  <%= f.text_area :content %>
+  <%= f.submit %>
+<% end %>
+
+<ul>
+  <% @replies.each do |reply| %>
+    <li><%= reply.content %></li>
+  <% end %>
+</ul>
